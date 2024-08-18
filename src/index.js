@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'; // Import BrowserRouter
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+ReactDOM.render(
+  <BrowserRouter> {/* Wrap your App component with BrowserRouter */}
     <App />
-  </React.StrictMode>
+  </BrowserRouter>,
+  document.getElementById('root')
 );
