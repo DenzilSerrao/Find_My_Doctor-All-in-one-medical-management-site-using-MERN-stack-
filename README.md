@@ -24,8 +24,8 @@ Clone the repository:
 
 bash
 Copy code
-### git clone https://github.com/yourusername/yourprojectname.git
-### cd yourprojectname
+### git clone https://github.com/DenzilSerrao/Find_My_Doctor-All-in-one-medical-management-site-using-MERN-stack-.git
+### cd Find_My_Doctor-All-in-one-medical-management-site-using-MERN-stack-
 
 Install the dependencies for both the frontend and backend:
 
@@ -57,3 +57,4 @@ Copy code
 ### npm start
 
 Open your web browser and go to http://localhost:3000 to view the application.
+You can always check MongoDB Compass or Mongo Shell to verify contents of your server
