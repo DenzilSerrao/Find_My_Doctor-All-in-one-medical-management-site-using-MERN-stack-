@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Consultation.css';
 
@@ -7,6 +8,7 @@ const Consultation = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchFilter, setSearchFilter] = useState('availability');
   const [filteredDoctors, setFilteredDoctors] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDoctors = async () => {
@@ -78,7 +80,7 @@ const Consultation = () => {
     <div className="main">
       <div className="navbar">
         <div className="buttons">
-          <a href="#symptoms-checker">HomePage</a>
+          <a href="" onClick={() => navigate('/')}>HomePage</a>
           <a href="#doctor-appointment">Doctor Appointment</a>
           <a href="#insurance-support">Insurance Support</a>
           <a href="#video-consultation">Video Consultations</a>

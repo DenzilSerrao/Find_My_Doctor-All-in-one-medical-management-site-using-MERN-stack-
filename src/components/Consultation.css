@@ -1,5 +1,6 @@
 /* General styles */
-body {
+.main {
+    width: 100%;
     display: flex;
     align-items: flex-start;
     height: 100vh;
@@ -10,10 +11,6 @@ body {
     flex-direction: row;
     align-content: flex-start;
     justify-content: space-between;
-}
-
-div{
-    width: 100%;
 }
 
 .navbar {
@@ -114,8 +111,9 @@ th {
 
 /* Center video and content */
 .content {
+    width: 100%;
     text-align: center;
-    padding: 30px 0 20px 0;
+    padding: 30px 0 90px 0;
     margin-bottom: 50px;
 }
 
