@@ -7,10 +7,10 @@ import Header from './Header';
 const Register = () => {
   const [formData, setFormData] = useState({
     type: 'User', // default selection
-    HospitalName: '',
-    HospitalContactNumber: '',
-    HospitalEmail: '',
-    HospitalAddress: '',
+    Name: '',
+    ContactNumber: '',
+    Email: '',
+    Address: '',
     Password: ''
   });
 
@@ -34,12 +34,43 @@ const Register = () => {
         alert('Registration successful!');
         navigate('/login');
       } else {
-        setError(response.data.message || 'Registration failed. Please try again.');
+        const errorMessage = response.data.message || 'Registration failed. Please try again.';
+        setError(errorMessage);
+        alert(errorMessage);
       }
     } catch (error) {
-      console.error('There was an error registering!', error);
-      setError('Registration failed due to a server error.');
+      const errorMessage = 'Registration failed due to a server error.';
+      console.error(errorMessage, error);
+      setError(errorMessage);
+      alert(errorMessage);
     }
+  };
+
+  const getPlaceholderText = (fieldName) => {
+    const placeholders = {
+      User: {
+        Name: 'Full Name',
+        ContactNumber: 'Contact Number',
+        Email: 'E-mail',
+        Address: 'Address',
+        Password: 'Password'
+      },
+      Hospital: {
+        Name: 'Hospital Name',
+        ContactNumber: 'Hospital Contact Number',
+        Email: 'Hospital E-mail',
+        Address: 'Hospital Address',
+        Password: 'Password'
+      },
+      Doctor: {
+        Name: 'Doctor Name',
+        ContactNumber: 'Doctor Contact Number',
+        Email: 'Doctor E-mail',
+        Address: 'Doctor Address',
+        Password: 'Password'
+      }
+    };
+    return placeholders[formData.type][fieldName];
   };
 
   return (
@@ -60,36 +91,36 @@ const Register = () => {
         <input 
           type="text" 
           className="input" 
-          name="HospitalName" 
-          placeholder="Name" 
-          value={formData.HospitalName}
+          name="Name" 
+          placeholder={getPlaceholderText('Name')} 
+          value={formData.Name}
           onChange={handleChange}
           required 
         />
         <input 
           type="tel" 
           className="input" 
-          name="HospitalContactNumber" 
-          placeholder="Contact Number" 
-          value={formData.HospitalContactNumber}
+          name="ContactNumber" 
+          placeholder={getPlaceholderText('ContactNumber')} 
+          value={formData.ContactNumber}
           onChange={handleChange}
           required 
         />
         <input 
           type="email" 
           className="input" 
-          name="HospitalEmail" 
-          placeholder="E-mail" 
-          value={formData.HospitalEmail}
+          name="Email" 
+          placeholder={getPlaceholderText('Email')} 
+          value={formData.Email}
           onChange={handleChange}
           required 
         />
         <input 
           type="text" 
           className="input" 
-          name="HospitalAddress" 
-          placeholder="Address" 
-          value={formData.HospitalAddress}
+          name="Address" 
+          placeholder={getPlaceholderText('Address')} 
+          value={formData.Address}
           onChange={handleChange}
           required 
         />
@@ -97,7 +128,7 @@ const Register = () => {
           type="password" 
           className="input" 
           name="Password"  
-          placeholder="Password" 
+          placeholder={getPlaceholderText('Password')} 
           value={formData.Password}
           onChange={handleChange}
           required 
@@ -110,7 +141,7 @@ const Register = () => {
         {error && <p className="error-message">{error}</p>}
       </form>
       <span className="agreement">
-        <a href="#">Learn user licence agreement</a>
+        <a href="#">Learn user license agreement</a>
       </span>
     </div>
   );

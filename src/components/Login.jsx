@@ -7,7 +7,7 @@ import Header from './Header';
 const Login = () => {
   const [formData, setFormData] = useState({
     type: 'User', // Default selection
-    HospitalEmail: '',
+    Email: '',    // Changed to Email
     Password: ''
   });
 
@@ -22,23 +22,27 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    const { type, Email, Password } = formData; // Extract form data
+  
     try {
-      const response = await axios.post('http://localhost:5000/login', formData);
-
+      const response = await axios.post('http://localhost:5000/login', { type, Email, Password });
+  
       if (response.status === 200) {
-        const { hospitalId } = response.data;
-        localStorage.setItem('hospitalId', hospitalId || 'undefined'); // Ensure hospitalId is set correctly
-
-        alert('Login successful!');
+        const { type, email, hospitalId } = response.data;
+        sessionStorage.setItem('userType', type);
+        sessionStorage.setItem('userEmail', email);
+        sessionStorage.setItem('hospitalId', hospitalId || 'undefined');
         
+        alert('Login successful!');
+  
         // Redirect based on user type
-        if (formData.type === 'Hospital') {
-          navigate('/profile');
-        } else if (formData.type === 'Doctor') {
-          navigate('/'); // Update to appropriate route for Doctor
+        if (type === 'Hospital') {
+          navigate('/profile'); // Adjust route if needed
+        } else if (type === 'Doctor') {
+          navigate('/'); // Adjust to appropriate route for Doctor
         } else {
-          navigate('/'); // Update to appropriate route for User
+          navigate('/'); // Adjust to appropriate route for User
         }
       } else {
         alert('Login failed. Please check your credentials.');
@@ -48,6 +52,7 @@ const Login = () => {
       alert('Login failed due to a server error.');
     }
   };
+  
 
   return (
     <div className="container">
@@ -67,9 +72,9 @@ const Login = () => {
         <input 
           type="email" 
           className="input" 
-          name="HospitalEmail" 
+          name="Email" // Changed to Email
           placeholder="E-mail" 
-          value={formData.HospitalEmail}
+          value={formData.Email}
           onChange={handleChange}
           required 
         />

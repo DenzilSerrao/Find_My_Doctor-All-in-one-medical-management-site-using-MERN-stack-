@@ -4,6 +4,8 @@ import axios from 'axios';
 
 const Header = () => {
   const [serverStatus, setServerStatus] = useState('');
+  const userEmail = sessionStorage.getItem('userEmail');
+  const userType = sessionStorage.getItem('userType');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,6 +34,7 @@ const Header = () => {
       </div>
       <div className="server-status">
         <p>{serverStatus}</p>
+        <h1>Welcome{userEmail ? `, ${userEmail}` : ''}</h1>
       </div>
       <nav>
         <ul>
