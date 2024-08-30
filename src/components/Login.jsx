@@ -29,11 +29,20 @@ const Login = () => {
       const response = await axios.post('http://localhost:5000/login', { type, Email, Password });
   
       if (response.status === 200) {
-        const { type, email, hospitalId } = response.data;
+        const { type, email, name, doctorName, hospitalName, hospitalId } = response.data;
+
         sessionStorage.setItem('userType', type);
         sessionStorage.setItem('userEmail', email);
-        sessionStorage.setItem('hospitalId', hospitalId || 'undefined');
-        
+
+        // Store the correct display name based on user type
+        if (type === 'Hospital') {
+          sessionStorage.setItem('displayName', hospitalName || email);
+          sessionStorage.setItem('hospitalId', hospitalId || 'undefined');
+        } else if (type === 'Doctor') {
+          sessionStorage.setItem('displayName', doctorName || email);
+        } else {
+          sessionStorage.setItem('displayName', name || email);
+        }
         alert('Login successful!');
   
         // Redirect based on user type
