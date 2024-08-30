@@ -1,0 +1,207 @@
+/* Reset */
+
+body, html {
+  margin: 0; /* Remove any default margins */
+  padding: 0;
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed; /* Fixed position */
+  top: 0; 
+  left: 0;/* Align it to the top of the viewport */
+  width: 100%; /* Full width of the viewport */
+  z-index: 1000; /* Ensure it's above other elements */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Logo */
+header .logo {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header .logo .logo-icon {
+  width: 70px; /* Adjust size as needed */
+  height: auto;
+  margin-right: 10px;
+}
+
+header .logo h1 {
+  font-size: 1.5em;
+  padding-left: 10px; /* Adjust for spacing */
+}
+
+/* Navigation */
+header nav {
+  margin: 0; /* Reset margin */
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin-left: 20px;
+}
+
+header nav ul li button {
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header nav ul li button:hover {
+  background-color: #808080;
+  color: #fffafa;
+}
+
+/* Main Content */
+main {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Adjust alignment to top */
+  padding: 20px 100px; /* Adjust padding as needed */
+  padding-top: 280px; /* Height of the fixed header + padding for main content */
+  background-color: #e9ecef;
+  box-sizing: border-box; /* Ensure padding is included in width */ /* Ensure no extra margin */
+}
+
+/* Content inside Main */
+main .content {
+  max-width: 50%;
+}
+
+main .content h2 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+main .content p {
+  font-size: 1.2em;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+main .content button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+main .content button:hover {
+  background-color: #2980b9;
+}
+
+main .image img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-section {
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 80px 90px 90px;
+    background-color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.filter-section h3 {
+  font-size: 1.5em;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.filter-section h2 {
+  font-size: 2em;
+  color: #2c3e50;
+  margin-bottom: 40px;
+}
+
+.filter-section .filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-card {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  width: 22%;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-card h4 {
+  font-size: 1.3em;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.filter-card p {
+  font-size: 1em;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+.filter-card button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.filter-card button:hover {
+  background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+  background-color: #34495e;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-top: 50px;
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
